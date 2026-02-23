@@ -41,7 +41,7 @@ bool HumanID::initialize(std::weak_ptr<const BipedalLocomotion::ParametersHandle
         std::optional<std::string> urdfOpt = ResolveRoboticsURICpp::resolveRoboticsURI(urdfModel);
         if (!urdfOpt.has_value())
         {
-            BiomechanicalAnalysis::log()->error("Cannot resolve the URDF file");
+            BiomechanicalAnalysis::log()->error("{} Cannot resolve the URDF file {}.", logPrefix, urdfModel);
             return false;
         }
         m_modelPath = urdfOpt.value();
